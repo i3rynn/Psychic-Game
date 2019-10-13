@@ -21,22 +21,31 @@
           
         <script type="text/javascript">
         var choices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-        var answer = choices[Math.floor(Math.random() * choices.length)];
-        var guess= prompt("What's your guess?");
+        var answer = choices[0];//[Math.floor(Math.random() * choices.length)];//
+        console.log(answer);
+           var counter = 0;
+        function reset(){  
+            answer = choices[25];
+            console.log(answer)
+        }
        
         alert("You have 9 guesses.  Guess any letter of the alphabet!");
          document.onkeyup = function(event) {
          var guess = event.key;
-         for (i=0; i<9; i++){
+         for (var i=0; i<1; i++){
             console.log(i);
                 if (answer == guess){
                     alert("You got it right!  Good job!");
-                    break;
+                    reset();
                 }else{
-                    guess = prompt("Sorry, not this time!  Try again!")
-                   
+                    counter = counter + 1;
+                    console.log(counter);
+                    if(counter == 9){
+                        reset()
+                    }
+                //alert("Sorry!  Better luck next time!");//}  
                 } 
-                };
+         }};
       
       
 
